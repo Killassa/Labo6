@@ -1,13 +1,13 @@
 /*
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 Nom du fichier : crible.h
-Nom du labo : Labo 6 - Crible Eratosthène
-Auteur(s) : Grégory Rey-Mermet, Didier Lokokpe
-Date creation : 19.11.2021
-Description :
-Remarque(s) :
-Compilateur : Mingw-w64 g++ 11.2.0
------------------------------------------------------------------------------------
+Nom du labo    : Labo 6 - Crible Eratosthène
+Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
+Date creation  : 19.11.2021
+Description    :
+Remarque(s)    :
+Compilateur    : Mingw-w64 g++ 11.2.0
+-------------------------------------------------------------------------------------
 */
 
 #ifndef LABO6_CRIBLE_H
