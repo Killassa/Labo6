@@ -37,8 +37,8 @@ void afficherTableau(const bool tableau[],
                      size_t taille,
                      int nombreColonne,
                      int alignement,
-                     char faux = "0",
-                     char vrai = "1",
+                     char faux = '0',
+                     char vrai = '1',
                      int position = 0);
 
 /**
@@ -74,9 +74,6 @@ void afficherPositions(const bool tableau[],
  * @param valeurCherchee
  * @return
  */
-int totalElementChercher(const bool tableau[],
-                         size_t taille,
-                         int position,
-                         int valeurCherchee);
+int totalElementChercher(const bool tableau[], size_t taille, int position, int valeurCherchee);
 
 #endif //LABO6_TABLEAU_H

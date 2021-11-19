@@ -12,6 +12,8 @@ Compilateur : Mingw-w64 g++ 11.2.0
 #include <cstdlib>
 #include <iostream>
 
+#include "crible.h"
+#include "tableau.h"
 #include "annexe.h"
 
 using namespace std;
@@ -21,6 +23,8 @@ int main() {
 
    const char FAUX = 'X';
    const char VRAI = 'O';
+
+
 
 
    cout << "Ce programme..." << endl;

@@ -12,3 +12,6 @@ Compilateur : Mingw-w64 g++ 11.2.0
 
 #include "crible.h"
 
+void eratosthene(bool tableau[], size_t taille) {
+
+}
