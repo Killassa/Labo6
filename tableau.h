@@ -30,7 +30,7 @@ void initialiserTableau(bool tableau[], unsigned taille, bool valeurDefaut);
 
 /**
  * Cherche une valeur dans un tableau booléen en commençant à une position défini
- * et retourne la première valeur trouvée
+ * et retourne la position de la première valeur trouvée
  *
  * @param tableau        Tableau booléen dans lequel effectuer la recherche
  * @param taille         Taille du tableau
@@ -87,7 +87,7 @@ void afficherPositionsElement(const bool         tableau[],
                                     bool         valeurCherchee,
                                     unsigned     nombreColonne,
                                     int          alignement,
-                                    unsigned     position = 0);
+                                    unsigned     position = 1);
 
 
 /**

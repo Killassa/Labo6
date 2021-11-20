@@ -47,7 +47,7 @@ void afficherTableau(const bool     tableau[],
                            unsigned position) {
    for(unsigned i = position; i < taille; i+=nombreColonne) {
       for(unsigned colonne = 0; colonne < nombreColonne && i+colonne < taille; colonne++)  {
-         cout << setw(alignement) << (tableau[i+colonne] ? vrai : faux);
+         cout << setw(alignement) << (tableau[i+colonne] ? faux : vrai);
       }
       cout << endl;
    }
@@ -63,12 +63,12 @@ void afficherPositionsElement(const bool     tableau[],
    unsigned positionActuel = position;
 
    while((positionActuel = chercher(tableau, taille, valeurCherchee, positionActuel)) < taille) {
+
+      cout << setw(alignement) << ++positionActuel;
+      ++increment;
       if(increment % nombreColonne == 0 && increment != 0) {
          cout << endl;
       }
-      cout << setw(alignement) << ++positionActuel;
-
-      ++increment;
    }
 
    cout << endl;
