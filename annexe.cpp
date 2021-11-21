@@ -13,6 +13,7 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 
 #include <iostream> //cout, cin
 #include <limits>   //numeric_limits
+#include <cassert>  //assert
 
 #include "annexe.h"
 
@@ -48,6 +49,9 @@ void verifierSaisie(const bool erreur, const string& msgErreur) {
 
 
 int saisir(const string& msgSaisie, int min, int max, const string& msgErreur) {
+   //Arrêt si min plus grand que max
+   assert(min <= max);
+
    int  entierSaisi;
    bool erreur;
 

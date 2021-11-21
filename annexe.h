@@ -27,7 +27,7 @@ void pause(const std::string& message);
 
 
 /**
- * Saisir un entier dans un intervalle (saisie controllée)
+ * Saisir dans un intervalle (saisie controllée)
  *
  * @param msgSaisie Message pour indiquer la saisie à effectuer
  * @param min       Valeur min

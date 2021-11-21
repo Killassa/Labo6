@@ -30,7 +30,7 @@ void initialiserTableau(bool tableau[], unsigned taille, bool valeurDefaut);
 
 /**
  * Cherche une valeur dans un tableau booléen en commençant à une position défini
- * et retourne la position de la première valeur trouvée
+ * et retourne la première valeur trouvée
  *
  * @param tableau        Tableau booléen dans lequel effectuer la recherche
  * @param taille         Taille du tableau
@@ -50,6 +50,9 @@ unsigned chercher(const bool     tableau[],
  * Affiche un tableau booléen avec des caractères définis en fonction de la valeur
  * vraie ou fausse indiquée, l'affichage est formaté selon un nombre de colonne défini
  *
+ * Remarques : Il n'est pas possible d'afficher aucune colonne, il est nécessaire
+ *             d'en avoir au moins une
+ *
  * @param tableau       Tableau booléen à afficher
  * @param taille        Taille du tableau
  * @param nombreColonne Nombre de colonne sur lequel affiché les différentes valeurs
@@ -60,18 +63,25 @@ unsigned chercher(const bool     tableau[],
  * @param position      Position du tableau à partir de laquel l'affichage des
  *                      éléments débute (par défaut : 0)
  */
-void afficherTableau(const bool         tableau[],
-                           unsigned     taille,
-                           unsigned     nombreColonne,
-                           int          alignement,
-                           char         faux     = '0',
-                           char         vrai     = '1',
-                           unsigned     position = 0);
+void afficherTableau(const bool     tableau[],
+                           unsigned taille,
+                           unsigned nombreColonne,
+                           int      alignement,
+                           char     faux     = '0',
+                           char     vrai     = '1',
+                           unsigned position = 0);
 
 
 /**
  * Affiche les positions d'une valeur recherchée dans un tableau de booléen,
  * l'affichage est formaté selon un nombre de colonne défini
+ *
+ * Remarques : L'affichage des éléments commence à 1, il est d'usage de commencer à
+ *             compter depuis 1 et non à 0 comme on le ferait en informatique, ainsi
+ *             la case [0] est donc la 1ère case
+ *
+ *             Il n'est pas possible d'afficher aucune colonne, il est nécessaire
+ *             d'en avoir au moins une
  *
  * @param tableau        Tableau booléen dans lequel effectuer la recherche
  * @param taille         Taille du tableau
@@ -82,12 +92,12 @@ void afficherTableau(const bool         tableau[],
  * @param position       Position du tableau à partir de laquel l'affichage des
  *                       éléments débute (par défaut : 0)
  */
-void afficherPositionsElement(const bool         tableau[],
-                                    unsigned     taille,
-                                    bool         valeurCherchee,
-                                    unsigned     nombreColonne,
-                                    int          alignement,
-                                    unsigned     position = 0);
+void afficherPositionsElement(const bool     tableau[],
+                                    unsigned taille,
+                                    bool     valeurCherchee,
+                                    unsigned nombreColonne,
+                                    int      alignement,
+                                    unsigned position = 0);
 
 
 /**

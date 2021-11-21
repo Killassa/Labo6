@@ -1,20 +1,25 @@
 /*
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 Nom du fichier : main.cpp
-Nom du labo : Labo 6 - Crible Eratosthène
-Auteur(s) : Grégory Rey-Mermet, Didier Lokokpe
-Date creation : 19.11.2021
-Description :
-Remarque(s) :
-Compilateur : Mingw-w64 g++ 11.2.0
------------------------------------------------------------------------------------
+Nom du labo    : Labo 6 - Crible Eratosthène
+Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
+Date creation  : 19.11.2021
+Description    : Le programme permet d'identifier tous les nombres premiers dans un
+                 intervalle donné en se basant sur la méthode du crible d'Eratosthène.
+                 L'utilisateur choisit le nombre de valeurs à tester.
+                 Le programme affichera l'état du tableau avant et après le crible,
+                 il indiquera ensuite combien de nombres premiers ont été identifiés
+                 et il les liste à l'écran.
+Remarque(s)    : -
+Compilateur    : Mingw-w64 g++ 11.2.0
+-------------------------------------------------------------------------------------
 */
-#include <cstdlib> // pour EXIT_SUCCESS
-#include <iostream> // pour cout / cin
+#include <cstdlib>   //EXIT_SUCCESS
+#include <iostream>  //cout
 
-#include "annexe.h"
-#include "tableau.h"
 #include "crible.h"
+#include "tableau.h"
+#include "annexe.h"
 
 using namespace std;
 
@@ -26,7 +31,7 @@ int main() {
    const string MSG_INTRO            = "Ce programme ...";
 
    //Message à afficher lors de la saisie
-   const string MSG_SAISIE           = "nombre de valeurs";
+   const string MSG_SAISIE           = "nbre de valeurs";
 
    //Message d'erreur
    const string MSG_ERREUR_SAISIE    = "/!\\ Saisie incorrecte ...\n"s;
@@ -62,7 +67,7 @@ int main() {
 
 
    /* -------------------------------------------------------------------------------
-    *  Début au programme
+    *  Introduction au programme
     * -----------------------------------------------------------------------------*/
    cout << MSG_INTRO << endl;
 
@@ -70,14 +75,13 @@ int main() {
    /* -------------------------------------------------------------------------------
     *  Initialisation du tableau
     * -----------------------------------------------------------------------------*/
-   const unsigned TAILLE = (unsigned)saisir(MSG_SAISIE, MIN_VALEUR, MAX_VALEUR,
-                                             MSG_ERREUR_SAISIE);
+   const unsigned TAILLE = (unsigned)saisir(MSG_SAISIE, MIN_VALEUR, MAX_VALEUR, MSG_ERREUR_SAISIE);
    initialiserTableau(tabNbPremier, TAILLE, VALEUR_CHERCHEE);
    cout << endl;
 
 
    /* -------------------------------------------------------------------------------
-    *  Affichage du tableau après initialisation
+    *  Affiche du tableau après initialisation
     * -----------------------------------------------------------------------------*/
    cout << MSG_INIT << endl;
    afficherTableau(tabNbPremier, TAILLE, NOMBRE_COLONNE, ALIGNEMENT_TABLEAU, FAUX, VRAI);
@@ -99,18 +103,17 @@ int main() {
 
 
    /* -------------------------------------------------------------------------------
-    *  Affiche du résultat en excluant le 1 car ce n'est pas un nombre premier
+    *  Affiche du résultat
     * -----------------------------------------------------------------------------*/
    afficherResultat(MSG_NB_PREMIER_DEBUT,
                     MSG_NB_PREMIER_FIN,
-                    totalElementChercher(tabNbPremier, TAILLE, VALEUR_CHERCHEE, 1));
+                    totalElementChercher(tabNbPremier, TAILLE, VALEUR_CHERCHEE));
 
    afficherPositionsElement(tabNbPremier,
                             TAILLE,
                             VALEUR_CHERCHEE,
                             NOMBRE_COLONNE,
-                            ALIGNEMENT_RESULTAT,
-                            1);
+                            ALIGNEMENT_RESULTAT);
    cout << endl;
 
 
@@ -118,6 +121,7 @@ int main() {
     *  Message de fin
     * -----------------------------------------------------------------------------*/
    pause(MSG_QUITTER);
+
 
    return EXIT_SUCCESS;
 }
