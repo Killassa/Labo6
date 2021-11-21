@@ -25,6 +25,6 @@ Compilateur    : Mingw-w64 g++ 11.2.0
  * @param taille     Taille du tableau
  * @param position   Position a partir de laquelle effectuée la recheche
  */
-void eratosthene(bool tableau[], size_t taille, unsigned position = 0);
+void eratosthene(bool tableau[], size_t taille, unsigned position = 1);
 
 #endif //LABO6_CRIBLE_H

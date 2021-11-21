@@ -67,7 +67,7 @@ void afficherPositionsElement(const bool     tableau[],
       if(increment % nombreColonne == 0 && increment != 0) {
          cout << endl;
       }
-      cout << setw(alignement) << positionActuel++;
+      cout << setw(alignement) << ++positionActuel;
       ++increment;
    }
    cout << endl;

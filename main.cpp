@@ -26,10 +26,10 @@ int main() {
    const string MSG_INTRO            = "Ce programme ...";
 
    //Message à afficher lors de la saisie
-   const string MSG_SAISIE           = "nbre de valeurs";
+   const string MSG_SAISIE           = "nombre de valeurs";
 
    //Message d'erreur
-   const string MSG_ERREUR_SAISIE    = "/!\\ erreur de saisie ...\n"s;
+   const string MSG_ERREUR_SAISIE    = "/!\\ Saisie incorrecte ...\n"s;
 
    //Messsage pour l'affichage du tableau initialisé
    const string MSG_INIT             = "initialisation du tableau";
@@ -70,7 +70,8 @@ int main() {
    /* -------------------------------------------------------------------------------
     *  Initialisation du tableau
     * -----------------------------------------------------------------------------*/
-   const unsigned TAILLE = (unsigned)saisir(MSG_SAISIE, MIN_VALEUR, MAX_VALEUR, MSG_ERREUR_SAISIE);
+   const unsigned TAILLE = (unsigned)saisir(MSG_SAISIE, MIN_VALEUR, MAX_VALEUR,
+                                             MSG_ERREUR_SAISIE);
    initialiserTableau(tabNbPremier, TAILLE, VALEUR_CHERCHEE);
    cout << endl;
 
@@ -103,6 +104,7 @@ int main() {
    afficherResultat(MSG_NB_PREMIER_DEBUT,
                     MSG_NB_PREMIER_FIN,
                     totalElementChercher(tabNbPremier, TAILLE, VALEUR_CHERCHEE, 1));
+
    afficherPositionsElement(tabNbPremier,
                             TAILLE,
                             VALEUR_CHERCHEE,

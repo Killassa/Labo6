@@ -17,16 +17,17 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 
 void eratosthene(bool tableau[], size_t taille, unsigned position) {
 
-   tableau[1] = false;
+   //tableau[1] = false;
    tableau[0] = false;
 
    for( ; position <= taille; ++position){ // permet de tester chaque éléments du
       // tableau
       if(tableau[position]){ // teste si la case actuelle du tableau est vrai
-         for(unsigned valeurInterval = position * position; valeurInterval <= taille;
-         valeurInterval += position)
+         unsigned valeur = position + 1;
+         for(unsigned valeurInterval = valeur * valeur; valeurInterval <= taille;
+         valeurInterval += valeur)
          {
-            tableau[valeurInterval] = false;// mettre tout les diviseur de
+            tableau[valeurInterval - 1] = false;// mettre tout les diviseur de
             // l'élément courant a faux pourne plus encore les tester
          }
       }
