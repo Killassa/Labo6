@@ -87,7 +87,7 @@ void afficherPositionsElement(const bool         tableau[],
                                     bool         valeurCherchee,
                                     unsigned     nombreColonne,
                                     int          alignement,
-                                    unsigned     position = 1);
+                                    unsigned     position = 0);
 
 
 /**

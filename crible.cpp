@@ -5,7 +5,9 @@ Nom du labo    : Labo 6 - Crible Eratosthène
 Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
 Date creation  : 19.11.2021
 Description    : Selon la methode d'Eratosthene, cette fonction permet de
-                 rechercher les nombres premiers dans un tableau donnée
+                 rechercher les nombres premiers dans un tableau donnée en
+                 commencant par 2, ensuite mettre tout ses multiple a faux pour
+                 rendre la recherche plus facile
 Remarque(s)    :
 Compilateur    : Mingw-w64 g++ 11.2.0
 -------------------------------------------------------------------------------------
@@ -15,21 +17,18 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 
 void eratosthene(bool tableau[], size_t taille, unsigned position) {
 
-   bool pasPremier; // detecteur de nombre pas premier
+   tableau[1] = false;
+   tableau[0] = false;
 
-   for( ; position <= taille; ++position){ // premiere boucle qui vérifie si les
-      // éléments du tableau
-      for(unsigned valeurInterval = 2; valeurInterval <= taille; ++valeurInterval){ // deuxieme boucle qui teste chaque
-         // éléments du tableau par rapport aux éléments de la premiere boucle
-         if(position != valeurInterval and position % valeurInterval == 0){ // teste si l'élément a d'autre
-            // diviseurs
-            pasPremier = true;
-            break;
+   for( ; position <= taille; ++position){ // permet de tester chaque éléments du
+      // tableau
+      if(tableau[position]){ // teste si la case actuelle du tableau est vrai
+         for(unsigned valeurInterval = position * position; valeurInterval <= taille;
+         valeurInterval += position)
+         {
+            tableau[valeurInterval] = false;// mettre tout les diviseur de
+            // l'élément courant a faux pourne plus encore les tester
          }
-      }
-      if(pasPremier){ // si l'element n'est pas premmier
-         tableau[position - 1] = true; // mettre a 1 l'element a cette posotion
-         pasPremier = false; // mettre a jour le detecteur de nombre pas premier
       }
    }
 }
