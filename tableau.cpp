@@ -14,7 +14,6 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 
 #include <iostream> //cout, cin
 #include <iomanip>  //setw
-#include <cassert>  //assert
 
 #include "tableau.h"
 
@@ -41,13 +40,15 @@ unsigned chercher(const bool     tableau[],
 
 void afficherTableau(const bool     tableau[],
                            unsigned taille,
-                           unsigned nombreColonne,
                            int      alignement,
                            char     faux,
                            char     vrai,
+                           unsigned nombreColonne,
                            unsigned position) {
-   //Arrêt si nombre de colonne = 0
-   assert(nombreColonne > 0);
+   //Si colonne = 0 affichage sur une ligne
+   if(nombreColonne == 0) {
+      nombreColonne = taille;
+   }
 
    for(unsigned i = position; i < taille; i+=nombreColonne) {
       for(unsigned colonne = 0; colonne < nombreColonne && i+colonne < taille; colonne++)  {
@@ -60,11 +61,13 @@ void afficherTableau(const bool     tableau[],
 void afficherPositionsElement(const bool     tableau[],
                                     unsigned taille,
                                     bool     valeurCherchee,
-                                    unsigned nombreColonne,
                                     int      alignement,
+                                    unsigned nombreColonne,
                                     unsigned position) {
-   //Arrêt si nombre de colonne = 0
-   assert(nombreColonne > 0);
+   //Si colonne = 0 affichage sur une ligne
+   if(nombreColonne == 0) {
+      nombreColonne = taille;
+   }
 
    unsigned increment = 0;
    unsigned positionActuel = position;

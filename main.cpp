@@ -84,7 +84,7 @@ int main() {
     *  Affiche du tableau après initialisation
     * -----------------------------------------------------------------------------*/
    cout << MSG_INIT << endl;
-   afficherTableau(tabNbPremier, TAILLE, NOMBRE_COLONNE, ALIGNEMENT_TABLEAU, FAUX, VRAI);
+   afficherTableau(tabNbPremier, TAILLE, ALIGNEMENT_TABLEAU, FAUX, VRAI, NOMBRE_COLONNE);
    cout << endl;
 
 
@@ -98,7 +98,7 @@ int main() {
     *  Affiche du tableau après criblage
     * -----------------------------------------------------------------------------*/
    cout << MSG_CRIBLAGE << endl;
-   afficherTableau(tabNbPremier, TAILLE, NOMBRE_COLONNE, ALIGNEMENT_TABLEAU, FAUX, VRAI);
+   afficherTableau(tabNbPremier, TAILLE, ALIGNEMENT_TABLEAU, FAUX, VRAI, NOMBRE_COLONNE);
    cout << endl;
 
 
@@ -112,8 +112,8 @@ int main() {
    afficherPositionsElement(tabNbPremier,
                             TAILLE,
                             VALEUR_CHERCHEE,
-                            NOMBRE_COLONNE,
-                            ALIGNEMENT_RESULTAT);
+                            ALIGNEMENT_RESULTAT,
+                            NOMBRE_COLONNE);
    cout << endl;
 
 

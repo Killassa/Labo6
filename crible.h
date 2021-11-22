@@ -20,11 +20,11 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 #define LABO6_CRIBLE_H
 
 /**
- * Effectue le crible d'un tableau booléen initialiser à True passé un paramètre,
+ * Effectue le crible d'un tableau booléen initialiser à True et passé en paramètre,
  * le crible est basé sur la méthode d'Eratosthène et il met à False toutes les
  * cases qui ne sont pas des nombres premiers
  *
- * Remarques : le tableau commence à 1 (tableau[0] = 1)
+ * Remarques : le tableau commence à 1 (considère que tableau[0] = 1)
  *
  * @param tableau Tableau de booléen à cribler
  * @param taille  Taille du tableau

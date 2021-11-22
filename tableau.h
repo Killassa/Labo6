@@ -50,25 +50,25 @@ unsigned chercher(const bool     tableau[],
  * Affiche un tableau booléen avec des caractères définis en fonction de la valeur
  * vraie ou fausse indiquée, l'affichage est formaté selon un nombre de colonne défini
  *
- * Remarques : Il n'est pas possible d'afficher aucune colonne, il est nécessaire
- *             d'en avoir au moins une
+ * Remarques : Il n'est pas possible d'afficher aucune colonne, dans le cas 0
+ *             colonnes, on effectue l'affichage sur une ligne
  *
  * @param tableau       Tableau booléen à afficher
  * @param taille        Taille du tableau
- * @param nombreColonne Nombre de colonne sur lequel affiché les différentes valeurs
- *                      du tableau (Nombre d'éléments à afficher par ligne)
  * @param alignement    Défini l'espace entre les éléments pour les aligner
  * @param faux          Caractère à afficher pour une valeur booléenne de 0 (par défaut : '0')
  * @param vrai          Caractère à afficher pour une valeur booléenne de 1 (par défaut : '1')
+ * @param nombreColonne Nombre de colonne sur lequel affiché les différentes valeurs
+ *                      du tableau (Nombre d'éléments à afficher par ligne)
  * @param position      Position du tableau à partir de laquel l'affichage des
  *                      éléments débute (par défaut : 0)
  */
 void afficherTableau(const bool     tableau[],
                            unsigned taille,
-                           unsigned nombreColonne,
                            int      alignement,
                            char     faux     = '0',
                            char     vrai     = '1',
+                           unsigned nombreColonne = 0,
                            unsigned position = 0);
 
 
@@ -80,23 +80,23 @@ void afficherTableau(const bool     tableau[],
  *             compter depuis 1 et non à 0 comme on le ferait en informatique, ainsi
  *             la case [0] est donc la 1ère case
  *
- *             Il n'est pas possible d'afficher aucune colonne, il est nécessaire
- *             d'en avoir au moins une
+ *             Il n'est pas possible d'afficher aucune colonne, dans le cas 0
+ *             colonnes, on effectue l'affichage sur une ligne
  *
  * @param tableau        Tableau booléen dans lequel effectuer la recherche
  * @param taille         Taille du tableau
  * @param valeurCherchee Valeur booléenne recherchée dans le tableau
+ * @param alignement     Défini l'espace entre les éléments pour les aligner
  * @param nombreColonne  Nombre de colonne sur lequel affiché les différentes valeurs
  *                       du tableau (Nombre d'éléments à afficher par ligne)
- * @param alignement     Défini l'espace entre les éléments pour les aligner
  * @param position       Position du tableau à partir de laquel l'affichage des
  *                       éléments débute (par défaut : 0)
  */
 void afficherPositionsElement(const bool     tableau[],
                                     unsigned taille,
                                     bool     valeurCherchee,
-                                    unsigned nombreColonne,
                                     int      alignement,
+                                    unsigned nombreColonne = 0,
                                     unsigned position = 0);
 
 
