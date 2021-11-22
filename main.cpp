@@ -55,15 +55,15 @@ int main() {
    /* -------------------------------------------------------------------------------
     *  Initialisation des variables
     * -----------------------------------------------------------------------------*/
-   const int  MAX_VALEUR          = 100;  //
-   const int  MIN_VALEUR          = 2;    //
-   const int  NOMBRE_COLONNE      = 10;   //
-   const bool VALEUR_CHERCHEE     = true; //
-   const char FAUX                = 'X';  //
-   const char VRAI                = 'O';  //
-   const int  ALIGNEMENT_TABLEAU  = 3;    //
-   const int  ALIGNEMENT_RESULTAT = 5;    //
-   bool tabNbPremier[MAX_VALEUR];         //
+   const int  MAX_VALEUR          = 100;  //Valeur maximum pour la saisie
+   const int  MIN_VALEUR          = 2;    //Valeur minimum pour la saisie
+   const int  NOMBRE_COLONNE      = 10;   //Nombre de colonne pour l'affichage
+   const bool VALEUR_CHERCHEE     = true; //Valeur recherchée dans le tableau booléen
+   const char FAUX                = 'X';  //Caractère d'affichage pour une valeur False
+   const char VRAI                = 'O';  //Caractère d'affichage pour une valeur True
+   const int  ALIGNEMENT_TABLEAU  = 3;    //Alignement pour l'affichage du tableau
+   const int  ALIGNEMENT_RESULTAT = 5;    //Alignement pour l'affichage des nombres premiers
+   bool tabNbPremier[MAX_VALEUR];         //Tableau de booléen pour le criblage
 
 
    /* -------------------------------------------------------------------------------
