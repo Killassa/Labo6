@@ -1,102 +1,73 @@
 /*
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 Nom du fichier : tableau.cpp
-Nom du labo    : Labo 6 - Crible Eratosthène
-Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
+Auteur(s)      : Tomas Pavoni et Dorian Gillioz
+Modifié par    : Grégory Rey-Mermet, Didier Lokokpe
 Date creation  : 19.11.2021
-Description    : Ce fichier définit diverses fonctions utiles pour initialiser des
-                 tableaux, effectuer des recherches dans un tableau ainsi que
-                 différents affichage.
-Remarque(s)    : -
+Description    : Définitions des fonctions de la librairie "tableau"
+Remarque(s)    : ---
+Modification   : ---
 Compilateur    : Mingw-w64 g++ 11.2.0
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 */
-
-#include <iostream> //cout, cin
-#include <iomanip>  //setw
 
 #include "tableau.h"
 
+#include <iostream>
+
 using namespace std;
 
-void initialiserTableau(bool tableau[], unsigned taille, bool valeurDefaut) {
-   for(unsigned i = 0; i < taille; ++i) {
-      tableau[i] = valeurDefaut;
+void remplirTableau(bool tabOut[], unsigned taille, bool valeur) {
+   for (unsigned element = 0; element < taille; ++element){
+      tabOut[element] = valeur;
    }
 }
 
-unsigned chercher(const bool     tableau[],
-                        unsigned taille,
-                        bool     valeurCherchee,
-                        unsigned position) {
-   for( ; position < taille; ++position) {
-      if(tableau[position] == valeurCherchee) {
-         return position;
-      }
+void afficherTableau(const bool tab[], unsigned taille, unsigned colonnes,
+                     char caractreVrai, char caractereFaux) {
+   char c;
+   for (unsigned element = 1; element <= taille; ++element){
+      c = tab[element-1] ? caractreVrai : caractereFaux;
+      cout << ' ' << c;
+      if (!(element % colonnes)) cout << endl;
    }
-
-   return taille;
+   cout << endl;
 }
-
-void afficherTableau(const bool     tableau[],
-                           unsigned taille,
-                           int      alignement,
-                           char     faux,
-                           char     vrai,
-                           unsigned nombreColonne,
-                           unsigned position) {
-   //Si colonne = 0 affichage sur une ligne
-   if(nombreColonne == 0) {
-      nombreColonne = taille;
+void afficherTableau(const unsigned tab[], unsigned taille, unsigned colonnes, char separation) {
+   for (unsigned element = 1; element <= taille; ++element){
+      cout << separation << ' ' << tab[element - 1];
+      if (!(element % colonnes)) cout << endl;
    }
-
-   for(unsigned i = position; i < taille; i+=nombreColonne) {
-      for(unsigned colonne = 0; colonne < nombreColonne && i+colonne < taille; colonne++)  {
-         cout << setw(alignement) << (tableau[i+colonne] ? vrai : faux);
-      }
-      cout << endl;
-   }
-}
-
-void afficherPositionsElement(const bool     tableau[],
-                                    unsigned taille,
-                                    bool     valeurCherchee,
-                                    int      alignement,
-                                    unsigned nombreColonne,
-                                    unsigned position) {
-   //Si colonne = 0 affichage sur une ligne
-   if(nombreColonne == 0) {
-      nombreColonne = taille;
-   }
-
-   unsigned increment = 0;
-   unsigned positionActuel = position;
-
-   //Si la position actuelle est égale à la taille on sort car aucune valeur n'a été
-   //trouvée
-   while((positionActuel = chercher(tableau, taille, valeurCherchee, positionActuel)) < taille) {
-      if(increment % nombreColonne == 0 && increment != 0) {
-         cout << endl;
-      }
-      //Affiche la position de l'élément trouvé
-      cout << setw(alignement) << ++positionActuel;
-
-      ++increment;
-   }
-
    cout << endl;
 }
 
-int totalElementChercher(const bool     tableau[],
+unsigned listeValeurVrai(const bool     tab[],
                                unsigned taille,
-                               bool     valeurCherchee,
-                               unsigned position) {
-   int nbreOccurence = 0;
-   unsigned positionActuel = position;
+                               unsigned tabEntier[],
+                               unsigned position,
+                               unsigned capacite,
+                               bool     decaler) {
+   unsigned tailleEntier = 0;  //Taille du tableau d'entier
 
-    do {
-      positionActuel = chercher(tableau, taille, valeurCherchee, positionActuel);
-   } while(positionActuel < taille && ++positionActuel && ++nbreOccurence);
+   for (unsigned j = position; j < taille; ++j) {
+      if (tab[j] && tailleEntier <= capacite) {
+         tabEntier[tailleEntier] = j + decaler;
+         ++tailleEntier;
+      }
+   }
 
-   return nbreOccurence;
+   return tailleEntier;
+}
+
+void put(int tab[], size_t taille) {
+   cout << "[";
+
+   afficherTableau((unsigned*)tab, (unsigned)taille, 0, ',');
+
+   /*for (unsigned i = 0; i < taille - 1; ++i) {
+      cout << tab[i] << ", ";
+   }
+   cout << tab[taille-1];*/
+
+   cout << "]";
 }

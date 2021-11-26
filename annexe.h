@@ -1,56 +1,35 @@
 /*
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 Nom du fichier : annexe.h
-Nom du labo    : Labo 6 - Crible Eratosthène
-Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
+Auteur(s)      : Tomas Pavoni et Dorian Gillioz
 Date creation  : 19.11.2021
-Description    : Ce fichier d'en-tête (.h) met à la disposition de l'utilisateur
-                 diverses fonctions utiles dont l'on pourrait avoir besoin dans une
-                 multitude de projets différents.
-Remarque(s)    : -
+Description    : Déclaration des fonctions de la librairie "annexe".
+                 Fonctions diverses souvent indispensables à un programme
+Remarque(s)    : ---
+Modification   : ---
 Compilateur    : Mingw-w64 g++ 11.2.0
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 */
 
-#ifndef LABO6_ANNEXE_H
-#define LABO6_ANNEXE_H
+
+#ifndef LABO06_ERATOSTHENE_ANNEXE_H
+#define LABO06_ERATOSTHENE_ANNEXE_H
 
 #include <string>
 
 /**
- * Affiche un message et met en pause le programme jusqu'à ce que l'utilisateur
- * presse la touche ENTER
+ * nom                  : saisie
  *
- * @param message Message à afficher lors de la pause
- */
-void pause(const std::string& message);
-
-
-/**
- * Saisir dans un intervalle (saisie controllée)
+ * description          : saisit un entier entre @param min et @param max
  *
- * @param msgSaisie Message pour indiquer la saisie à effectuer
- * @param min       Valeur min
- * @param max       Valeur max
- * @param msgErreur Message d'erreur ("" par défaut)
- * @return          Entier saisi
- */
-int saisir(const std::string& msgSaisie, int min, int max, const std::string& msgErreur = "");
-
-
-/**
- * Vide le buffer
- */
-void viderBuffer();
-
-
-/**
- * Affiche  un résultat borné par deux messages
+ * @param min           : La valeur minimale à saisir
+ * @param max           : La valeur maximale à saisir
+ * @param MSG_SAISIE    : Le message de saisie
+ * @param MSG_ERREUR    : Le message d'erreur
  *
- * @param msgDebut Message situé avant le résultat
- * @param msgFin   Message situé après le résultat
- * @param resultat Valeur à afficher
+ * @return              : La saisie effectuée
  */
-void afficherResultat(const std::string& msgDebut, const std::string& msgFin, int resultat);
+int saisie(int min, int max, const std::string& MSG_SAISIE,
+           const std::string& MSG_ERREUR);
 
-#endif //LABO6_ANNEXE_H
+#endif //LABO06_ERATOSTHENE_ANNEXE_H

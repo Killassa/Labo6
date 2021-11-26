@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.17)
-project(Labo6)
+cmake_minimum_required(VERSION 3.20)
+project(Labo6.5)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_FLAGS "-Werror -Wall -Wextra -Wconversion -Wsign-conversion -pedantic")
 
-add_executable(Labo6 main.cpp annexe.cpp annexe.h tableau.cpp tableau.h crible.cpp crible.h)
+add_executable(Labo06_Eratosthene main.cpp eratosthene.h eratosthene.cpp annexe.h
+               annexe.cpp tableau.h tableau.cpp)

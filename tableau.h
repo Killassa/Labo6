@@ -1,117 +1,99 @@
 /*
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 Nom du fichier : tableau.h
-Nom du labo    : Labo 6 - Crible Eratosthène
-Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
+Auteur(s)      : Tomas Pavoni et Dorian Gillioz
+Modifié par    : Grégory Rey-Mermet, Didier Lokokpe
 Date creation  : 19.11.2021
-Description    : Ce fichier d'en-tête (.h) met à la disposition de l'utilisateur
-                 diverses fonctions utiles pour initialiser des tableaux, effectuer
-                 des recherches dans un tableau ainsi que différents affichage.
-Remarque(s)    : Le choix de tableaux booléens a été fait car n'ayant pas encore vu
-                 la généricité des données, il est nécessaire de passer exactement
-                 le même type de tableau que celui générer initialement.
-                 Cette librairie ne fonctionne donc qu'avec des tableaux booléens
+Description    : Déclarations des fonctions de la librairie "tableau".
+                 Fonctions utiles à la gestion de tableaux
+Remarque(s)    : ---
+Modification   : ---
 Compilateur    : Mingw-w64 g++ 11.2.0
--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 */
 
-#ifndef LABO6_TABLEAU_H
-#define LABO6_TABLEAU_H
+#ifndef LABO06_ERATOSTHENE_TABLEAU_H
+#define LABO06_ERATOSTHENE_TABLEAU_H
+
+#include <cstdlib>
 
 /**
- * Initialise un tableau booléen en fonction d'une valeur par défaut donnée
+ * nom              : remplirTableau
  *
- * @param tableau       Tableau booléen à initialiser
- * @param taille        Taille du tableau
- * @param valeurDefaut  Valeur à assigner par défaut
+ * description      : Remplit un tableau jusqu'à l'élément @param taille qui contient
+ *                    uniquement @param valeur
+ *
+ * @param tabOut    : Le tableau à remplir
+ * @param taille    : la taille du tableau que l'on veut remplir
+ * @param valeur    : la valeur que contiendra chaque case du tableau
+ *
+ * /!\              : @param taille ne doit pas être plus grand que la capacité du
+ *                    tableau
  */
-void initialiserTableau(bool tableau[], unsigned taille, bool valeurDefaut);
-
+void remplirTableau(bool tabOut[], unsigned taille, bool valeur);
 
 /**
- * Cherche une valeur dans un tableau booléen en commençant à une position défini
- * et retourne la première valeur trouvée
+ * nom                  : afficherTableau
  *
- * @param tableau        Tableau booléen dans lequel effectuer la recherche
- * @param taille         Taille du tableau
- * @param valeurCherchee Valeur booléenne recherchée dans le tableau
- * @param position       Position du tableau à partir de laquelle la recherche
- *                       commence (par défaut : 0)
- * @return               La position à laquelle la valeur a été trouvée ou si la
- *                       valeur n'a pas été trouvée, retourne la taille du tableau
+ * description          : Affiche un tableau formaté en fonction du nombre de colonnes
+ *                        donné
+ *
+ * @param tab           : Le tableau que l'on veut afficher
+ * @param taille        : Le nombre d'éléments du tableau que l'on veut afficher
+ * @param colonnes      : Le nombre de colonnes du tableau
+ * Optionnel :
+ * @param caractereVrai : La valeur qui sera affichée pour une case true (si booléen)
+ * @param caractereFaux : La valeur qui sera affichée pour une case false(si booléen)
+ *
+ * /!\                  : @param taille ne doit pas être plus grand que la capacité du
+ *                        tableau
  */
-unsigned chercher(const bool     tableau[],
-                        unsigned taille,
-                        bool     valeurCherchee,
-                        unsigned position = 0);
-
+void afficherTableau(const bool tab[], unsigned taille, unsigned colonnes,
+                      char caractereVrai, char caractereFaux);
 
 /**
- * Affiche un tableau booléen avec des caractères définis en fonction de la valeur
- * vraie ou fausse indiquée, l'affichage est formaté selon un nombre de colonne défini
+ * nom                  : afficherTableau
  *
- * Remarques : Il n'est pas possible d'afficher aucune colonne, dans le cas 0
- *             colonnes, on effectue l'affichage sur une ligne
+ * description          : Affiche un tableau formaté en fonction du nombre de colonnes
+ *                        donné
  *
- * @param tableau       Tableau booléen à afficher
- * @param taille        Taille du tableau
- * @param alignement    Défini l'espace entre les éléments pour les aligner
- * @param faux          Caractère à afficher pour une valeur booléenne de 0 (par défaut : '0')
- * @param vrai          Caractère à afficher pour une valeur booléenne de 1 (par défaut : '1')
- * @param nombreColonne Nombre de colonne sur lequel affiché les différentes valeurs
- *                      du tableau (Nombre d'éléments à afficher par ligne)
- * @param position      Position du tableau à partir de laquel l'affichage des
- *                      éléments débute (par défaut : 0)
+ * @param tab           : Le tableau que l'on veut afficher
+ * @param taille        : Le nombre d'éléments du tableau que l'on veut afficher
+ * @param colonnes      : Le nombre de colonnes du tableau
+ * @param separation    : Caractère à ajouter comme séparation si désiré
  */
-void afficherTableau(const bool     tableau[],
-                           unsigned taille,
-                           int      alignement,
-                           char     faux     = '0',
-                           char     vrai     = '1',
-                           unsigned nombreColonne = 0,
-                           unsigned position = 0);
-
+void afficherTableau(const unsigned tab[], unsigned taille, unsigned colonnes, char separation = '\0');
 
 /**
- * Affiche les positions d'une valeur recherchée dans un tableau de booléen,
- * l'affichage est formaté selon un nombre de colonne défini
+ * nom                  : listeValeurVrai
  *
- * Remarques : L'affichage des éléments commence à 1, il est d'usage de commencer à
- *             compter depuis 1 et non à 0 comme on le ferait en informatique, ainsi
- *             la case [0] est donc la 1ère case
+ * description          : Retourne un tableau contenant les index des valeurs True
+ *                        d'un tableau booléen
  *
- *             Il n'est pas possible d'afficher aucune colonne, dans le cas 0
- *             colonnes, on effectue l'affichage sur une ligne
- *
- * @param tableau        Tableau booléen dans lequel effectuer la recherche
- * @param taille         Taille du tableau
- * @param valeurCherchee Valeur booléenne recherchée dans le tableau
- * @param alignement     Défini l'espace entre les éléments pour les aligner
- * @param nombreColonne  Nombre de colonne sur lequel affiché les différentes valeurs
- *                       du tableau (Nombre d'éléments à afficher par ligne)
- * @param position       Position du tableau à partir de laquel l'affichage des
- *                       éléments débute (par défaut : 0)
+ * @param tab           : Tableau booléen dans lequel on cherche nos valeurs
+ * @param taille        : Taille du tableau
+ * @param tabEntier     : Tableau pour l'obtention des valeurs
+ * @param position      : Position à laquelle on commence à récupérer les valeurs
+ *                        Remarques : Il a fallu mettre 2 par défaut ici pour éviter
+ *                                    de modifier le code précédent
+ * @param capacite      : Capacite max du tableau d'entier
+ * @param decaler       : Permet d'incrémenter l'index de 1 pour commencer à compter
+ *                        depuis 1 et non depuis 0
+ * @return              : Taille du tableau d'entier après ajout des valeurs
  */
-void afficherPositionsElement(const bool     tableau[],
-                                    unsigned taille,
-                                    bool     valeurCherchee,
-                                    int      alignement,
-                                    unsigned nombreColonne = 0,
-                                    unsigned position = 0);
-
-
-/**
- * Retourne le nombre de fois où une valeur recherchée se trouve dans un tableau de booléen
- *
- * @param tableau        Tableau booléen dans lequel effectuer la recherche
- * @param taille         Taille du tableau
- * @param valeurCherchee Valeur booléenne recherchée dans le tableau
- * @param position       Position du tableau à partir de laquelle la recherche débute
- * @return               Le nombre de fois où la valeur se trouve dans le tableau
- */
-int totalElementChercher(const bool     tableau[],
+unsigned listeValeurVrai(const bool     tab[],
                                unsigned taille,
-                               bool     valeurCherchee,
-                               unsigned position = 0);
+                               unsigned tabEntier[],
+                               unsigned position = 0,
+                               unsigned capacite = 100,
+                               bool     decaler  = false);
 
-#endif //LABO6_TABLEAU_H
+
+/**
+ *
+ * @param tab
+ * @param taille
+ */
+void put(int tab[], size_t taille);
+
+#endif //LABO06_ERATOSTHENE_TABLEAU_H
