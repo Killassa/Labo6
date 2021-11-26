@@ -34,11 +34,20 @@ void afficherTableau(const bool tab[], unsigned taille, unsigned colonnes,
    cout << endl;
 }
 void afficherTableau(const unsigned tab[], unsigned taille, unsigned colonnes, char separation) {
-   for (unsigned element = 1; element <= taille; ++element){
-      cout << separation << ' ' << tab[element - 1];
-      if (!(element % colonnes)) cout << endl;
+   for (unsigned element = 0; element < taille; ++element){
+      if(element){
+         cout << separation;
+      }
+      if(colonnes){
+         if(element != 0 and element%colonnes == 0){
+            cout << endl;
+         }
+      } else{
+
+      }
+      cout << tab[element];
    }
-   cout << endl;
+
 }
 
 unsigned listeValeurVrai(const bool     tab[],
@@ -63,11 +72,6 @@ void put(int tab[], size_t taille) {
    cout << "[";
 
    afficherTableau((unsigned*)tab, (unsigned)taille, 0, ',');
-
-   /*for (unsigned i = 0; i < taille - 1; ++i) {
-      cout << tab[i] << ", ";
-   }
-   cout << tab[taille-1];*/
 
    cout << "]";
 }

@@ -28,7 +28,8 @@ using namespace std;
 
 int main() {
 
-   const string   DESCRIPTION    = "Ce programme permet de cribler un tableau a la "
+   /*const string   DESCRIPTION    = "Ce programme permet de cribler un tableau a "
+                                     "la "
                                    "façcon d'Eratosthene et de renvoyer les nombres "
                                    "premiers se trouvant dans celui-ci.\n"
                                    "Pour cela il faudra specifier le nombre de "
@@ -44,9 +45,9 @@ int main() {
    const char     CARACTERE_FAUX = 'X';
    const unsigned MIN            = 2;
    const unsigned MAX            = 100;
-   const unsigned COLONNE        = 10;
+   const unsigned COLONNE        = 10;*/
 
-   // Début du programme
+   /*// Début du programme
    cout << DESCRIPTION << endl;
 
    // Saisie du nombre de valeurs
@@ -73,7 +74,8 @@ int main() {
 
    //Correction de l'ancien affichage -> dérangeant lors des tests pour l'affichage
    unsigned const TAILLE = nbrePremiers;//sizeof(tabNbrPremiers) / sizeof(unsigned);
-   afficherTableau(tabNbrPremiers, TAILLE, COLONNE);
+   afficherTableau(tabNbrPremiers, TAILLE, COLONNE);*/
+
 
 
 

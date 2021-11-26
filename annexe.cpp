@@ -1,39 +1,74 @@
 /*
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 Nom du fichier : annexe.cpp
-Auteur(s)      : Tomas Pavoni et Dorian Gillioz
+Nom du labo    : Labo 6 - Crible Eratosthène
+Auteur(s)      : Grégory Rey-Mermet, Didier Lokokpe
 Date creation  : 19.11.2021
-Description    : Définitions des fonction de la librairie "annexe"
-Remarque(s)    : ---
-Modification   : ---
+Description    : Ce fichier définit diverses fonctions utiles dont l'on pourrait
+                 avoir besoin dans une multitude de projets différents.
+Remarque(s)    : -
 Compilateur    : Mingw-w64 g++ 11.2.0
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 */
+
+#include <iostream> //cout, cin
+#include <limits>   //numeric_limits
+#include <cassert>  //assert
 
 #include "annexe.h"
 
-#include <iostream>
-#include <limits>
-#include <string>
-
 using namespace std;
 
-int saisie(int min, int max, const string& MSG_SAISIE,
-           const string& MSG_ERREUR){
-
-   int  saisie;
-   bool erreur;
-   do {
-      cout << MSG_SAISIE << " [" << min << ".." << max << "] : ";
-      cin  >> saisie;
-
-      erreur = saisie < min || saisie > max || cin.fail();
-      if (erreur) {
-         cout << MSG_ERREUR << endl;
-         cin.clear();
-      }
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');  // vider buffer
-   } while(erreur);
-
-   return saisie;
+void viderBuffer() {
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+
+
+void pause(const string& message) {
+   cout << message;
+   viderBuffer();
+}
+
+
+/**
+ * Vérifie la saisie, si besoin répare le flux et affiche un message d'erreur
+ *
+ * @param erreur    Statut de l'erreur
+ * @param msgErreur Message d'erreur
+ */
+void verifierSaisie(const bool erreur, const string& msgErreur) {
+   if (erreur) {
+      cout << msgErreur;
+
+      //Réparation du flux d'entrée cin
+      cin.clear();
+   }
+
+   viderBuffer();
+}
+
+
+int saisir(const string& msgSaisie, int min, int max, const string& msgErreur) {
+   //Arrêt si min plus grand que max
+   assert(min <= max);
+
+   int  entierSaisi;
+   bool erreur;
+
+   do {
+      cout << msgSaisie << " [" << min << ".." << max << "] : ";
+      cin  >> entierSaisi;
+
+      //Vérifie si la valeur se situe dans les bornes
+      erreur = cin.fail() || entierSaisi < min || entierSaisi > max;
+      verifierSaisie(erreur, msgErreur);
+   } while (erreur);
+
+   return entierSaisi;
+}
+
+
+void afficherResultat(const std::string& msgDebut, const std::string& msgFin, int resultat) {
+   cout << msgDebut << " " << resultat << " " << msgFin << endl;
+}
+
